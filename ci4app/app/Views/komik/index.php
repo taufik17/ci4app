@@ -5,6 +5,12 @@
 	<div class="row">
 		<div class="col">
 			<h1 class="mt-2">Daftar Komik</h1>
+			<a href="/komik/create" class="btn btn-primary mb-3">Tambah Data Komik</a>
+			<?php if (session()->getFlashdata('pesan')) : ?>
+				<div class="alert alert-success" role="alert">
+				  <?= session()->getFlashdata('pesan'); ?>
+				</div>
+			<?php endif; ?>
 			<table class="table">
 			  <thead>
 			    <tr>
@@ -22,7 +28,7 @@
 			      <td><img src="/img/<?= $k['sampul']; ?>" alt="" class="sampul"></td>
 			      <td><?= $k['judul']; ?></td>
 			      <td>
-			      	<a href="" class="btn btn-success">Detail</a>
+			      	<a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
 			      </td>
 			    </tr>
 					<?php endforeach; ?>
